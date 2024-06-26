@@ -1,7 +1,9 @@
-NAME = megaphone
+NAME = phonebook
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = megaphone.cpp
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC =	main.cpp \
+	phonebook.cpp \
+	contact.cpp
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))
@@ -10,9 +12,9 @@ OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXFLAGS) $(OBJS) -o $@
 
-$(OBJS_DIR)%.o:$(SRC)
+$(OBJS_DIR)%.o: %.cpp
 	mkdir -p $(@D)
 	$(CXX) $(C_FLAGS) -c $< -o $@
 
