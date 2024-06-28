@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:43:33 by athiebau          #+#    #+#             */
-/*   Updated: 2024/06/26 23:24:12 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:16:36 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Phonebook::Phonebook()
 {
 	_nb = 0;
+	_oldest = 1;
 }
 
 int	Phonebook::add()
@@ -26,34 +27,54 @@ int	Phonebook::add()
 		_nb++;
 	}
 	else
-		std::cout << "Error ! Memory is full" << std::endl;
+	{
+		if (_contact[_oldest - 1].fill(_oldest) < 0)
+			return (-1);
+		_oldest++;
+		if (_oldest > 9)
+		_oldest = 1;
+	}
 	return (0);
 }
 
-// int	Phonebook::select()
-// {
-// 	int	flag = 1;
-// 	char	*index = new char[2];
-	
-// 	std::cout << "Please select an index :";
-// 	std::cin >> index;
-// 	if (std::cin.eof())
-// 	{
-// 		delete []index;
-// 		return (-1);
-// 	}
-// 	 return (0);
-// }
-
-void	Contact::display_list()
+int	Phonebook::select()
 {
-	std::cout << "│" << std::setw(10) << _index;
-	for (int i = 0 ; i < 3 ; i++)
+	int	flag = 0;
+	std::string	index;
+	int	nb;
+	
+	std::cout << "Please select an index : ";
+	std::getline(std::cin, index);
+	if (std::cin.eof())
 	{
-		if (_infos[i].size() < 10)
-			std::cout << "│" << std::setw(10) << _infos[i];
-		else
-			std::cout << "│" << _infos[i].substr(0, 9) << ".";
+		return (-1);
 	}
-	std::cout << "│" << std::endl;
+	for (int i = 0; i < strlen(index.c_str()); i++)
+	{
+		if (!isdigit(index[i]))
+			flag = 1;
+	}
+	nb = atoi(index.c_str());
+	if (flag || std::cin.fail() || nb > _nb || nb <= 0)
+	{
+		std::cout << "Error: Invalid index value." << std::endl;
+		return (1);
+	}
+	_contact[nb - 1].display_select();
+	return (0);
+}
+
+int	Phonebook::display_phonebook()
+{
+	if (_nb == 0)
+		std::cout << "Error: Phonebook is empty." << std::endl;
+	else
+	{
+		std::cout << "│     INDEX│FIRST NAME│ LAST NAME│  NICKNAME│" << std::endl;
+		for (int i = 0 ; i < _nb ; i++)
+			_contact[i].display_list();
+		if (select() < 0)
+			return (-1);
+	}
+	return (0);
 }

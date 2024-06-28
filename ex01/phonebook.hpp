@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:01:52 by athiebau          #+#    #+#             */
-/*   Updated: 2024/06/26 23:12:26 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:14:03 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Phonebook
 	private:
 		Contact _contact[8];
 		int	_nb;
+		int	_oldest;
 };
 
 #endif
