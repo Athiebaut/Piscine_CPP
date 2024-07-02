@@ -1,9 +1,7 @@
-NAME = phonebook
+NAME = Hello_Brain_it_is
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp \
-	phonebook.cpp \
-	contact.cpp
+SRC =	main.cpp
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))

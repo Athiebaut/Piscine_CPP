@@ -1,9 +1,8 @@
-NAME = phonebook
+NAME = Sed_the_loser
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-	phonebook.cpp \
-	contact.cpp
+	Loser.cpp
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))

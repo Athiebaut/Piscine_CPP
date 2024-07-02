@@ -6,7 +6,6 @@ OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))
 
-
 all: $(NAME)
 
 $(NAME): $(OBJS)

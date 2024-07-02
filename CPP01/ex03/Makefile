@@ -1,9 +1,10 @@
-NAME = phonebook
+NAME = Useless_violence
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-	phonebook.cpp \
-	contact.cpp
+	HumanA.cpp \
+	HumanB.cpp \
+	Weapon.cpp
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))
