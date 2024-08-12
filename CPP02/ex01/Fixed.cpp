@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 09:16:31 by athiebau          #+#    #+#             */
-/*   Updated: 2024/07/09 13:42:00 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/12 14:00:01 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ Fixed::Fixed(void)
 {
 	_value = 0;
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int i) 
+{
+	std::cout << "Int constructor called"  << std::endl; 
+	this->_value = i << Fixed::_bits;
+}
+
+Fixed::Fixed(const float f) 
+{
+	std::cout << "Float constructor called"  << std::endl; 
+	this->_value = roundf(f *(1 << Fixed::_bits));
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -39,11 +51,26 @@ Fixed::~Fixed(void)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_value);
 }
 
-void Fixed::setRawBits(int const raw) {
-    std::cout << "setRawBits member function called" << std::endl;
+void	Fixed::setRawBits(int const raw) 
+{
     _value = raw;
 };
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->_value / (1 << Fixed::_bits));
+}
+
+int	Fixed::toInt(void) const
+{
+	return (this->_value >> Fixed::_bits);
+}
+
+std::ostream &operator<<(std::ostream &os, const Fixed &fx)
+{
+	os << fx.toFloat();
+	return (os);
+}

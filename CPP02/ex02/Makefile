@@ -1,4 +1,4 @@
-NAME = First_Canon
+NAME = Lets_talk
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
