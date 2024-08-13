@@ -1,0 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 15:23:25 by athiebau          #+#    #+#             */
+/*   Updated: 2024/08/13 22:08:22 by athiebau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Point.hpp"
+
+bool bsp(Point const &a, Point const &b, Point const &c, Point const &point)
+{
+	float s1 = c.getY() - a.getY();
+	float s2 = c.getX() - a.getX();
+	float s3 = b.getY() - a.getY();
+	float s4 = point.getY() - a.getY();
+
+	float w1 = (a.getX() * s1 + s4 * s2 - point.getX() * s1) / (s3 * s2 - (b.getX() - a.getX()) * s1);
+	float w2 = (s4- w1 * s3) / s1;
+	
+	return (w1 >= 0 && w2 >= 0 && ((w1 + w2) <= 1));
+}
