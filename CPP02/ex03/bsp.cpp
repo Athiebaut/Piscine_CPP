@@ -6,21 +6,30 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:23:25 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/13 22:08:22 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:05:08 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-bool bsp(Point const &a, Point const &b, Point const &c, Point const &point)
+bool bsp( Point const &a, Point const &b, Point const &c, Point const &point)
 {
-	float s1 = c.getY() - a.getY();
-	float s2 = c.getX() - a.getX();
-	float s3 = b.getY() - a.getY();
-	float s4 = point.getY() - a.getY();
+    Point const ab((b.getX()) - (a.getX()), (b.getY()) - (a.getY()));
+    Point const bc((c.getX()) - (b.getX()), (c.getY()) - (b.getY()));
+    Point const ca((a.getX()) - (c.getX()), (a.getY()) - (c.getY()));
+    
+    Point const ap((point.getX()) - (a.getX()), (point.getY()) - (a.getY()));
+    Point const bp((point.getX()) - (b.getX()), (point.getY()) - (b.getY()));
+    Point const cp((point.getX()) - (c.getX()), (point.getY()) - (c.getY()));
+    
+//     std::cout << "result of first op = " << (ab.getX() * ap.getY()) - (ab.getY() * ap.getX()) << std::endl;
+//     std::cout << "result of secund op = " << (bc.getX() * bp.getY()) - (bc.getY() * bp.getX()) << std::endl;
+//     std::cout << "result of thirs op = " << (ca.getX() * cp.getY()) - (ca.getY() * cp.getX()) << std::endl;
+            
 
-	float w1 = (a.getX() * s1 + s4 * s2 - point.getX() * s1) / (s3 * s2 - (b.getX() - a.getX()) * s1);
-	float w2 = (s4- w1 * s3) / s1;
-	
-	return (w1 >= 0 && w2 >= 0 && ((w1 + w2) <= 1));
+    if ((ab.getX() * ap.getY()) - (ab.getY() * ap.getX()) > 0 && (bc.getX() * bp.getY()) - (bc.getY() * bp.getX()) > 0 && (ca.getX() * cp.getY()) - (ca.getY() * cp.getX()) > 0)
+        return (true);
+    if ((ab.getX() * ap.getY()) - (ab.getY() * ap.getX()) < 0 && (bc.getX() * bp.getY()) - (bc.getY() * bp.getX()) < 0 && (ca.getX() * cp.getY()) - (ca.getY() * cp.getX()) < 0)
+        return (true);
+    return (false);
 }

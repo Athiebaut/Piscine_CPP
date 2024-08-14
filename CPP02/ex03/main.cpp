@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:23:05 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/13 22:26:58 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:05:53 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int main(int ac, char **av)
 	Point B(strtof(av[3], NULL), strtof(av[4], NULL));
 	Point C(strtof(av[5], NULL), strtof(av[6], NULL));
 	Point P(strtof(av[7], NULL), strtof(av[8], NULL));
+
 	if (!bsp(A, B, C, P))
 		std::cout << "\033[31mFalse\033[0m" << std::endl;
 	else
