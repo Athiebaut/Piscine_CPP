@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 12:19:19 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/16 17:25:46 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ DiamondTrap::DiamondTrap()
 	FragTrap::setHP();
 	ScavTrap::setEP();
 	FragTrap::setAD();
-	ClapTrap::_name = "DiamondTrap default_clap_name";
+	ClapTrap::_name = "DiamondTrap Default_clap_name";
 	
-	std::cout << "DiamondTrap: default constructor called" << std::endl;
+	std::cout << "DiamondTrap: Default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")

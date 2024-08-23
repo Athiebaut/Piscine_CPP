@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:49:22 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/15 14:22:48 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap()
 	_Hitpoints = 100;
 	_Energypoints = 50;
 	_Attackdamage = 20;
-	std::cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const name)

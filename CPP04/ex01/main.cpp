@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/23 13:48:46 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 13:48:49 by athiebau         ###   ########.fr       */
+/*   Created: 2024/08/23 12:54:08 by athiebau          #+#    #+#             */
+/*   Updated: 2024/08/23 16:27:45 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
-
 #include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 #include <iostream>
 
-class WrongAnimal: public Animal 
+int	main() 
 {
-	public:
-		WrongAnimal(void);
-		WrongAnimal(WrongAnimal const &other);
-		~WrongAnimal(void);
-		WrongAnimal &operator=(WrongAnimal const &other);
-
-		void makeSound() const;
-};
-
-
-
-#endif
+	Animal *array[50];
+	
+	for (int i = 0; i < 50; ++i) {
+		if (i < 25) array[i] = new Dog();
+		else array[i] = new Cat();
+	}
+	for (int i = 0; i < 50; ++i) {
+		delete array[i];
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 14:45:36 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/16 17:17:49 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap()
 	setHP();
 	setEP();
 	setAD();
-	std::cout << "FragTrap: default constructor called" << std::endl;
+	std::cout << "FragTrap: Default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string const name): ClapTrap(name)

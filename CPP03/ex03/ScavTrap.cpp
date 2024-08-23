@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:49:22 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/16 17:18:23 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap()
 	setHP();
 	setEP();
 	setAD();
-	std::cout << "ScavTrap: default constructor called" << std::endl;
+	std::cout << "ScavTrap: Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string const name): ClapTrap(name)

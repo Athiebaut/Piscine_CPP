@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 12:22:26 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/19 12:44:12 by athiebau         ###   ########.fr       */
+/*   Created: 2024/08/23 12:51:45 by athiebau          #+#    #+#             */
+/*   Updated: 2024/08/23 12:51:59 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include <iostream>
 
-class Cat : public Animal
+
+class Cat: public Animal 
 {
 	public:
-		Cat();
-		Cat(const Cat &other);
-		Cat& operator=(const Cat& other);
-		~Cat();
-
-		void	makeSound() const;
+		Cat(void);
+		Cat(Cat const &other);
+		~Cat(void);
+		Cat &operator=(Cat const &other);
 		
-	private:
-	
+		void makeSound() const;
 };
 
 #endif

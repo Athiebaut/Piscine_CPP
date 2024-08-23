@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/23 13:48:46 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 13:48:49 by athiebau         ###   ########.fr       */
+/*   Created: 2024/08/23 12:51:45 by athiebau          #+#    #+#             */
+/*   Updated: 2024/08/23 15:45:56 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 #include <iostream>
 
-class WrongAnimal: public Animal 
+
+class Cat: public Animal 
 {
 	public:
-		WrongAnimal(void);
-		WrongAnimal(WrongAnimal const &other);
-		~WrongAnimal(void);
-		WrongAnimal &operator=(WrongAnimal const &other);
-
+		Cat(void);
+		Cat(Cat const &other);
+		~Cat(void);
+		Cat &operator=(Cat const &other);
+		
 		void makeSound() const;
+		Brain *getBrain( void ) const;
+        	void setIdea( std::string idea, int index );
+        	std::string getIdea( int index ) const;
+	private:
+		Brain* _brain;
 };
-
-
 
 #endif

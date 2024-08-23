@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:48:47 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 14:14:47 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:47:52 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,22 @@ void Animal::makeSound() const
 std::string Animal::getType() const 
 {
 	return this->_type;
+}
+
+Brain *Animal::getBrain( void ) const
+{
+    return NULL;
+}
+
+void Animal::setIdea ( std::string idea, int index)
+{
+    (void)idea;
+    (void)index;
+    return;
+}
+
+std::string Animal::getIdea ( int index ) const
+{
+    (void)index;
+    return "";
 }

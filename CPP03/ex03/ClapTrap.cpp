@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 11:02:58 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/16 17:16:21 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap()
 	_Hitpoints = 10;
 	_Energypoints = 10;
 	_Attackdamage = 0;
-	std::cout << "ClapTrap: default constructor called" << std::endl;
+	std::cout << "ClapTrap: Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)

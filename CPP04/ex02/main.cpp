@@ -6,47 +6,34 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:54:08 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 14:02:15 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/08/23 17:00:18 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
+#include <iostream>
 
 int	main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << "---------------------" << std::endl;
+	std::cout << "-------Test 1--------" << std::endl;
+	// Animal* animals[4];
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	if (i % 2 == 0)
+	// 		animals[i] = new Dog();
+	// 	else
+	// 		animals[i] = new Cat();
+	// }
+	// for (int i = 0; i < 4; i++)
+	// 	animals[i]->makeSound();
+	// for (int i = 0; i < 4; i++)
+	// 	delete animals[i];
+		
+        Animal animal;
+        animal.makeSound();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-
-	delete i;
-	delete j;
-	delete meta;
-	
-	const WrongAnimal* meta2 = new WrongAnimal();
-	const Animal* j2 = new Dog();
-	const WrongAnimal* i2 = new WrongCat();
-
-	std::cout << j2->getType() << " " << std::endl;
-	std::cout << i2->getType() << " " << std::endl;
-
-	i2->makeSound();
-	j2->makeSound();
-	meta2->makeSound();
-
-	delete i2;
-	delete j2;
-	delete meta2;
-	
-	return 0;
+    return (0);
 }

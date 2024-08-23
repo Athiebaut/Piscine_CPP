@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/23 12:52:33 by athiebau          #+#    #+#             */
+/*   Created: 2024/08/23 14:11:25 by athiebau          #+#    #+#             */
 /*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-Dog::Dog() 
+Brain::Brain() 
 {
-	this->_type = "Dog";
-	std::cout << "Dog: Default constructor called." << std::endl;
+	std::cout << "Brain: Default constructor called." << std::endl;
 }
 
-Dog::Dog(const Dog &other): Animal(other) 
+Brain::Brain(const Brain &other)
 {
-	std::cout << "Dog: Copy constructor called." << std::endl;
+	std::cout << "Brain: copy constructor called." << std::endl;
 	*this = other;
 }
 
-Dog &Dog::operator=(const Dog &other) 
+Brain &Brain::operator=(const Brain &other) 
 {
-	std::cout << "Dog: Asignation operator called." << std::endl;
+	std::cout << "Brain: assignation operator called." << std::endl;
 	if (this != &other)
-		_type = other.getType();
+	{
+		for (size_t i = 0; i < 100; i++)
+			this->ideas[i] = other.ideas[i];
+	}
 	return *this;
 }
 
-Dog::~Dog() 
+Brain::~Brain() 
 {
-	std::cout << "Dog: Destructor called." << std::endl;
-}
-
-void Dog::makeSound() const 
-{
-	std::cout << "Woof !" << std::endl;
+	std::cout << "Brain: destructor called." << std::endl;
 }
