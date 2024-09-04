@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 05:15:56 by athiebau          #+#    #+#             */
-/*   Updated: 2024/07/02 05:31:11 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:30:59 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main()
 {
 	std::cout << "For i = 0" << std::endl;
 	Zombie *horde1 = zombieHorde(0, "oui");
+	horde1->announce();
 
 	std::cout << "For i = 1" << std::endl;
 	Zombie *horde2 = zombieHorde(1, "oui");

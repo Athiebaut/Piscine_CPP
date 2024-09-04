@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:23:05 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/14 17:19:59 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:44:26 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int main(int ac, char **av)
 	char	*error;
 	int	i = 1;
 	float	f;
-	bool	result;
 
 	system("clear");
 	std::cout << "Hi ! Wanna find out if your point find his way in the triangle ? Let see : ";

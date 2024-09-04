@@ -15,11 +15,11 @@ OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAMES))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 $(OBJS_DIR)%.o: %.cpp
 	mkdir -p $(@D)
-	$(CXX) $(C_FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)

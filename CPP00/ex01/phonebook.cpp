@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:43:33 by athiebau          #+#    #+#             */
-/*   Updated: 2024/06/28 16:16:36 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:29:41 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	Phonebook::select()
 	{
 		return (-1);
 	}
-	for (int i = 0; i < strlen(index.c_str()); i++)
+	for (size_t i = 0; i < strlen(index.c_str()); i++)
 	{
 		if (!isdigit(index[i]))
 			flag = 1;

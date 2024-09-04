@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 07:20:57 by athiebau          #+#    #+#             */
-/*   Updated: 2024/07/02 09:23:15 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:41:01 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ bool Loser::Sed(std::string filename, std::string s1, std::string s2)
 	std::string	str;
 	std::size_t	pos;
 
-	Ofile.open(filename);
+	Ofile.open(filename.c_str());
 	if (!Ofile.is_open() || !Ofile.good())
 	{
 		std::cout << "Error: Failed to open the file." << std::endl;
 		Ofile.close();
 		return (1);
 	}
-	std::ofstream Cfile((filename + ".replace"), std::ios::trunc);
+	std::ofstream Cfile((filename + ".replace").c_str() , std::ios::trunc);
 	if (!Cfile.good())
 	{
 		std::cout << "Error: Invalid file." << std::endl;
