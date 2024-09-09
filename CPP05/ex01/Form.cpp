@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:24:15 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/04 12:40:16 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:57:34 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ void Form::beSigned(const Bureaucrat &brc)
 	if (brc.getGrade() <= this->_signGrade)
 	{
 		this->_signed = true;
-		std::cout << brc.getName() << " signed " << this->_name << std::endl;
+		std::cout << "\033[34m" << brc.getName() << " signed " << _name << "\033[0m" << std::endl;
 	}
 	else
 	{
-		std::cout << brc.getName() << " couldn't sign " << this->_name << " because ";
+		std::cout << "\033[34m" << brc.getName() << " couldn't sign " << _name << " because " << "\033[0m";
 		throw Form::GradeTooLowException();
 
 	}
@@ -86,10 +86,10 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &os, const Form &form)
 {
-	os << "Form " << form.getName()
-	   << ", status: " << (form.getSigned() ? "signed" : "not signed")
+	os << "\033[34m" << "Form " << form.getName()
+	   << ", status: " << (form.getSigned() ? ("\033[32m" "signed" "\033[34m") : ("\033[31m" "not signed" "\033[34m"))
 	   << ", sign grade: " << form.getSignGrade()
 	   << ", execute grade: " << form.getExecGrade()
-	   << std::endl;
+	   << "\033[0m" << std::endl;
 	return os;
 }

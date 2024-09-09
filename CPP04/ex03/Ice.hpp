@@ -23,7 +23,7 @@ class Ice : public AMateria
 		virtual ~Ice();
 		Ice &operator=(const Ice &other);
 
-		AMateria *close() const;
+		AMateria *clone() const;
 		void use(ICharacter &target);
 };
 

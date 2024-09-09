@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 11:51:19 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/04 13:39:32 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:02:37 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,28 @@ int main()
 		{
 			ab->signForm(*cd);
 		}
-		catch (std::exception& e)
+		catch (std::exception& a)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << "\033[31m" << a.what() << "\033[0m" << std::endl;
 		}
+		/*************************************************************************/
 		std::cout << std::endl << *cd << std::endl;
 		try
 		{
 			cd->beSigned(*ac);
 		}
-		catch (std::exception& e)
+		catch (std::exception& a)
 		{
-			std::cout << e.what() << std::endl;
+			std::cout << "\033[31m" << a.what() << "\033[0m" << std::endl;
 		}
+		std::cout << std::endl << *cd << std::endl;
 		delete ab;
 		delete cd;
 		delete ac;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
 	}
 	return 0;
 }

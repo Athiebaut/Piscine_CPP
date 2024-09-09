@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:14:35 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/04 19:08:38 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/09 12:40:56 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,23 @@ AMateria::AMateria(std::string const &type) : _type(type)
 AMateria::~AMateria()
 {}
 
-AMateria::AMateria(const AMateria &other)
+AMateria::AMateria(const AMateria &other) : _type(other._type)
 {
-	*this = other;
 }
 
 AMateria &AMateria::operator=(const AMateria &other)
 {
 	(void)other;
 	return (*this);
+}
+
+std::string const &AMateria::getType() const
+{
+	return (_type);
+}
+
+void	AMateria::use(ICharacter &target)
+{
+	(void)target;
+	return ;
 }

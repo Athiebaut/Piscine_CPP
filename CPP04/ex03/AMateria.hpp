@@ -14,6 +14,7 @@
 #define AMATERIA_HPP
 
 #include <string>
+#include <iostream>
 
 class ICharacter;
 

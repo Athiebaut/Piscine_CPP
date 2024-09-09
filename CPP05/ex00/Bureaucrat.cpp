@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:35:43 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/03 12:58:05 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:09:15 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Bureaucrat::~Bureaucrat()
 {}
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &brc)
 {
-	os << brc.getName() << ", bureaucrat grade " << brc.getGrade() << std::endl;
+	os << "\033[34m" << brc.getName() << ", bureaucrat grade " << brc.getGrade() << "\033[0m" << std::endl;
 	return os;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:14:54 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/04 17:47:32 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/09 13:40:40 by alix             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ICharacter
 		ICharacter &operator=(const ICharacter &other);
 
 		virtual std::string const &getName() const = 0;
-        	virtual void equip(AMateria *m) = 0;
+        	virtual void equip(AMateria *am) = 0;
        		virtual void unequip(int index) = 0;
 		virtual void use(int index, ICharacter& target) = 0;
 
