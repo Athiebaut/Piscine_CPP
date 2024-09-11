@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:15:08 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 15:21:10 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:48:18 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+
+/**********Constructors/Destructor**********/
 
 MateriaSource::MateriaSource() : IMateriaSource()
 {}
@@ -27,6 +29,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 		IMateriaSource::operator=(other);
 	return (*this);
 }
+
+/**********Others**********/
 
 void MateriaSource::learnMateria(AMateria *am)
 {

@@ -6,27 +6,28 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:29:16 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 17:54:42 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:15:41 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "AForm.hpp"
 #include <iostream>
-#include "Form.hpp"
 
 #define high_r 1
 #define low_r 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
 	public:
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat const &other);
-		virtual ~Bureaucrat();
+		~Bureaucrat();
 		Bureaucrat &operator=(Bureaucrat const &other);
 
 		std::string	getName() const;
@@ -34,9 +35,9 @@ class Bureaucrat
 
 		void		incGrade();
 		void		decGrade();
-		void		signForm(Form &form);
+		void		signForm(AForm &form);
+		void		executeForm(AForm const &form);
 		
-
 		class GradeTooHighException : public std::exception
 		{
 			public:

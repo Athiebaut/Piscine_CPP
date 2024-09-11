@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:24:15 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 16:57:34 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:57:18 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-void	checkGrade(int grade)
+static void checkGrade(int grade)
 {
 	if (grade > low_r)
 		throw Form::GradeTooLowException();
 	if (grade < high_r)
 		throw Form::GradeTooLowException();
 }
+
+/**********Constructors/Destructor**********/
 
 Form::Form(const std::string name, bool sign, const int signGrade, const int execGrade) : _name(name), _signed(sign), _signGrade(signGrade), _execGrade(execGrade)
 {
@@ -39,25 +41,29 @@ Form &Form::operator=(Form const &other)
 	return (*this);
 }
 
+/**********Getter/Setter**********/
+
 const std::string &Form::getName() const
 {
-	return this->_name;
+	return (_name);
 }
 
 bool Form::getSigned() const
 {
-	return this->_signed;
+	return (_signed);
 }
 
 int Form::getSignGrade() const
 {
-	return this->_signGrade;
+	return (_signGrade);
 }
 
 int Form::getExecGrade() const
 {
-	return this->_execGrade;
+	return (_execGrade);
 }
+
+/**********Others**********/
 
 void Form::beSigned(const Bureaucrat &brc)
 {
@@ -70,9 +76,10 @@ void Form::beSigned(const Bureaucrat &brc)
 	{
 		std::cout << "\033[34m" << brc.getName() << " couldn't sign " << _name << " because " << "\033[0m";
 		throw Form::GradeTooLowException();
-
 	}
 }
+
+/**********Exceptions**********/
 
 const char *Form::GradeTooHighException::what() const throw()
 {
@@ -84,6 +91,8 @@ const char *Form::GradeTooLowException::what() const throw()
 	return "Exception: grade too low";
 }
 
+/**********Overload**********/
+
 std::ostream &operator<<(std::ostream &os, const Form &form)
 {
 	os << "\033[34m" << "Form " << form.getName()
@@ -91,5 +100,5 @@ std::ostream &operator<<(std::ostream &os, const Form &form)
 	   << ", sign grade: " << form.getSignGrade()
 	   << ", execute grade: " << form.getExecGrade()
 	   << "\033[0m" << std::endl;
-	return os;
+	return (os);
 }

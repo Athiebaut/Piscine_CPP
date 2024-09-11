@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 16:20:11 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 16:20:23 by athiebau         ###   ########.fr       */
+/*   Created: 2024/09/10 16:06:50 by athiebau          #+#    #+#             */
+/*   Updated: 2024/09/11 18:08:45 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
-#include "WrongAnimal.hpp"
+#include "AForm.hpp"
 
-class WrongCat : public WrongAnimal
+class RobotomyRequestForm : public AForm 
 {
 	public:
-		WrongCat();
-		WrongCat(WrongCat const &other);
-		~WrongCat();
-		WrongCat &operator=(WrongCat const &other);
+		RobotomyRequestForm(const std::string &target);
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		~RobotomyRequestForm();
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 
-		void makeSound()const;
+		void execute(const Bureaucrat &exec) const;
+		
+	private:
+		RobotomyRequestForm();
 };
 
 #endif

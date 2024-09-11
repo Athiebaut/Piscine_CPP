@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:35:43 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 18:00:44 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:05:54 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 	return (*this);
 }
 
-/**********Getter/Setter**********/
+/**********Getters/Setters**********/
 
 std::string Bureaucrat::getName() const
 {
@@ -106,5 +106,5 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &brc)
 {
 	os << "\033[34m" << brc.getName() << ", bureaucrat grade " << "\033[0m" << brc.getGrade() << std::endl;
-	return (os);
+	return os;
 }

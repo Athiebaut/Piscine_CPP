@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:51:45 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 12:51:59 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:18:12 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
-#include <iostream>
 
-
-class Cat: public Animal 
+class Cat : public Animal 
 {
 	public:
-		Cat(void);
+		Cat();
 		Cat(Cat const &other);
 		~Cat(void);
 		Cat &operator=(Cat const &other);

@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 15:10:24 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 18:02:20 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:07:46 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 /**********Others**********/
 
-void PresidentialPardonForm::execute(const Bureaucrat &exec) const
+void	PresidentialPardonForm::execute(const Bureaucrat &exec) const
 {
 	if (!this->getSigned()) 
 	{

@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:54:08 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 14:02:15 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:18:32 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ int	main()
 	delete j2;
 	delete meta2;
 	
-	return 0;
+	return (0);
 }

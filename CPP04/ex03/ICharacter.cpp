@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:14:51 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 13:36:10 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:38:59 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
+
+/**********Constructors/Destructor**********/
 
 ICharacter::ICharacter()
 {
@@ -56,6 +58,6 @@ ICharacter &ICharacter::operator=(const ICharacter &other)
                 		_inventory[i] = NULL;
         	}
 	}
-	return *this;	
+	return (*this);	
 }
 

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/23 12:51:45 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 17:28:21 by athiebau         ###   ########.fr       */
+/*   Created: 2024/09/10 16:35:20 by athiebau          #+#    #+#             */
+/*   Updated: 2024/09/11 18:09:24 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-#include "Animal.hpp"
+#include "AForm.hpp"
 
-class Cat : public Animal 
+class ShrubberyCreationForm : public AForm 
 {
 	public:
-		Cat();
-		Cat(Cat const &other);
-		~Cat();
-		Cat &operator=(Cat const &other);
-		
-		Brain *getBrain() const;
-        	std::string getIdea(int index) const;
-		void setIdea(std::string idea, int index);
+		ShrubberyCreationForm(const std::string &target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &other);
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 
-		void makeSound() const;
+		void execute(const Bureaucrat &exec) const;
 		
 	private:
-		Brain* _brain;
+		ShrubberyCreationForm();
 };
 
 #endif

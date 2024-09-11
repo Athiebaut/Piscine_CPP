@@ -6,13 +6,13 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:24:15 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 17:59:13 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:04:57 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-static void checkGrade(int grade)
+static void	checkGrade(int grade)
 {
 	if (grade > low_r)
 		throw AForm::GradeTooLowException();
@@ -44,7 +44,7 @@ AForm &AForm::operator=(AForm const &other)
 	return (*this);
 }
 
-/**********Getter/Setter**********/
+/**********Getters/Setters**********/
 
 const std::string &AForm::getName() const
 {
@@ -84,6 +84,7 @@ void AForm::beSigned(const Bureaucrat &brc)
 	{
 		std::cout << "\033[34m" << brc.getName() << " couldn't sign " << _name << " because " << "\033[0m";
 		throw AForm::GradeTooLowException();
+
 	}
 }
 
@@ -103,7 +104,7 @@ void AForm::checkExecuted(const Bureaucrat& exec) const
 	this->execute(exec);
 }
 
-/********** Exceptions **********/
+/**********Exceptions**********/
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
@@ -120,7 +121,7 @@ const char *AForm::NotSigned::what() const throw()
 	return "Form not signed";
 }
 
-/********** Overload **********/
+/**********Overload**********/
 
 std::ostream &operator<<(std::ostream &os, const AForm &form)
 {

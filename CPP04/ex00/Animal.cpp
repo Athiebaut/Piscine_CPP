@@ -6,18 +6,18 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:48:47 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 14:14:47 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:16:58 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(): _type("") 
+Animal::Animal() : _type("") 
 {
 	std::cout << "Animal: Default constructor called." << std::endl;
 }
 
-Animal::Animal(std::string const &type): _type(type) 
+Animal::Animal(std::string const &type) : _type(type) 
 {
 	std::cout << "Animal: Parametrized constructor called." << std::endl;
 }
@@ -43,7 +43,7 @@ Animal::~Animal()
 
 void Animal::makeSound() const 
 {
-	std::cout << "Unknown sound." << std::endl;
+	std::cout << "Animal sound." << std::endl;
 }
 
 std::string Animal::getType() const 

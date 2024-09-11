@@ -6,16 +6,15 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:29:16 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/10 17:34:24 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:14:25 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
-
 #include "AForm.hpp"
+#include <iostream>
 
 #define high_r 1
 #define low_r 150
@@ -38,7 +37,6 @@ class Bureaucrat
 		void		decGrade();
 		void		signForm(AForm &form);
 		void		executeForm(AForm const &form);
-		
 
 		class GradeTooHighException : public std::exception
 		{

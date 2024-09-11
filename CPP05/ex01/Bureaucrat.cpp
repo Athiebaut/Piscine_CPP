@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:35:43 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 16:52:12 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:54:31 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+/**********Constructors/Destructor**********/
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
@@ -39,11 +41,7 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &os, Bureaucrat const &brc)
-{
-	os << "\033[34m" << brc.getName() << ", bureaucrat grade " << "\033[0m" << brc.getGrade() << std::endl;
-	return os;
-}
+/**********Getter/Setter**********/
 
 std::string Bureaucrat::getName() const
 {
@@ -54,6 +52,8 @@ int Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
+
+/**********Others**********/
 
 void Bureaucrat::incGrade()
 {
@@ -69,6 +69,13 @@ void Bureaucrat::decGrade()
 		throw Bureaucrat::GradeTooLowException();
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	form.beSigned(*this);
+}
+
+/**********Exceptions**********/
+
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("GradeTooHighException");
@@ -79,7 +86,10 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return ("GradeTooLowException");
 }
 
-void Bureaucrat::signForm(Form &form)
+/**********Overload**********/
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &brc)
 {
-	form.beSigned(*this);
+	os << "\033[34m" << brc.getName() << ", bureaucrat grade " << "\033[0m" << brc.getGrade() << std::endl;
+	return os;
 }

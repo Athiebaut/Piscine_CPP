@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:14:40 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 15:16:05 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:36:23 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+
+/**********Constructors/Destructor**********/
 
 Character::Character() : ICharacter(), _name(""), _count(0)
 {}
@@ -43,10 +45,14 @@ Character &Character::operator=(const Character &other)
 	return (*this);
 }
 
+/**********Getter/Setter**********/
+
 std::string const &Character::getName() const
 {
 	return (_name);
 }
+
+/**********Others**********/
 
 void Character::equip(AMateria *am)
 {

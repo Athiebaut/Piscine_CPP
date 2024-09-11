@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:35:20 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/10 16:35:52 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:09:28 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const std::string &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		~ShrubberyCreationForm();
-
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 
 		void execute(const Bureaucrat &exec) const;
+		
 	private:
 		ShrubberyCreationForm();
 };

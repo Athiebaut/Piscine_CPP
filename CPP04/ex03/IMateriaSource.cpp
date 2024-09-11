@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:14:57 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 14:57:43 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:40:02 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "IMateriaSource.hpp"
 
+/**********Constructors/Destructor**********/
+
 IMateriaSource::IMateriaSource()
 {
 	for (int i = 0; i < 4; i++)
         	_inventory[i] = NULL;
-    	return;
+    	return ;
 }
 
-IMateriaSource::IMateriaSource( const IMateriaSource &other )
+IMateriaSource::IMateriaSource(const IMateriaSource &other)
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -27,10 +29,10 @@ IMateriaSource::IMateriaSource( const IMateriaSource &other )
         	if (other._inventory[i])
             		_inventory[i] = other._inventory[i]->clone();
     	}
-	return;
+	return ;
 }
 
-IMateriaSource::~IMateriaSource( void )
+IMateriaSource::~IMateriaSource()
 {	
 	for (int i = 0; i < 4; i++)
 	{
@@ -40,7 +42,7 @@ IMateriaSource::~IMateriaSource( void )
 	return ;
 }
 
-IMateriaSource &IMateriaSource::operator=( const IMateriaSource &other )
+IMateriaSource &IMateriaSource::operator=(const IMateriaSource &other)
 {	
 	if (this != &other)
 	{

@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:11:25 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:23:04 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::Brain() 
 {
-	std::cout << "Brain: Default constructor called." << std::endl;
+	std::cout << "Brain: default constructor called." << std::endl;
 }
 
 Brain::Brain(const Brain &other)
@@ -31,7 +31,7 @@ Brain &Brain::operator=(const Brain &other)
 		for (size_t i = 0; i < 100; i++)
 			this->ideas[i] = other.ideas[i];
 	}
-	return *this;
+	return (*this);
 }
 
 Brain::~Brain() 

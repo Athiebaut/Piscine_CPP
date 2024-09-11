@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 11:51:19 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 17:02:37 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:58:00 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main()
 			std::cout << "\033[31m" << a.what() << "\033[0m" << std::endl;
 		}
 		std::cout << std::endl << *cd << std::endl;
+		
 		delete ab;
 		delete cd;
 		delete ac;
@@ -49,5 +50,5 @@ int main()
 	{
 		std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
 	}
-	return 0;
+	return (0);
 }

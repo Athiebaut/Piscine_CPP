@@ -6,21 +6,23 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:50:36 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:25:52 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-Cat::Cat(): Animal()
+/**********Constructors/Destructor**********/
+
+Cat::Cat() : Animal()
 {
 	_type = "Cat";
 	_brain = new Brain();
-	std::cout << "Cat: Default constructor called." << std::endl;
+	std::cout << "Cat: default constructor called." << std::endl;
 }
 
-Cat::Cat(const Cat &other): Animal(other) 
+Cat::Cat(const Cat &other) : Animal(other) 
 {
 	std::cout << "Cat: copy constructor called." << std::endl;
 	*this = other;
@@ -43,7 +45,7 @@ Cat &Cat::operator=(const Cat &other)
             		_brain = NULL;
         this->_type = other._type;
     	}
-	return *this;
+	return (*this);
 }
 
 Cat::~Cat() 
@@ -52,22 +54,30 @@ Cat::~Cat()
 	std::cout << "Cat: destructor called." << std::endl;
 }
 
+/**********Getters/Setters**********/
+
+Brain *Cat::getBrain() const
+{
+	return _brain;
+}
+
+std::string Cat::getIdea(int index) const
+{
+	if (index < 0 || index > 99)
+		return (NULL);
+	return _brain->ideas[index];
+}
+
+void Cat::setIdea(std::string idea, int index)
+{
+	if (index < 0 || index > 99)
+		return ;
+	_brain->ideas[index] = idea;
+}
+
+/**********Others**********/
+
 void Cat::makeSound() const 
 {
 	std::cout << "Meow !" << std::endl;
-}
-
-Brain *Cat::getBrain( void ) const
-{
-    return _brain;
-}
-
-void Cat::setIdea( std::string idea, int index )
-{
-    _brain->ideas[index] = idea;
-}
-
-std::string Cat::getIdea( int index ) const
-{
-    return _brain->ideas[index];
 }

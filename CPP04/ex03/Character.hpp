@@ -27,6 +27,7 @@ class Character : public ICharacter
 		Character &operator=(const Character &other);
 
 		virtual std::string const &getName() const;
+		
 		virtual void equip(AMateria *am);
 		virtual void unequip(int index);
 		virtual void use(int index, ICharacter &target);

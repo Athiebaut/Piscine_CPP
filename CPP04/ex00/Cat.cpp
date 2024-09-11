@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:50:36 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:17:09 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 Cat::Cat() 
 {
 	_type = "Cat";
-	std::cout << "Cat: Default constructor called." << std::endl;
+	std::cout << "Cat: default constructor called." << std::endl;
 }
 
-Cat::Cat(const Cat &other): Animal(other) 
+Cat::Cat(const Cat &other) : Animal(other) 
 {
 	std::cout << "Cat: copy constructor called." << std::endl;
 	*this = other;
@@ -26,7 +26,7 @@ Cat::Cat(const Cat &other): Animal(other)
 
 Cat &Cat::operator=(const Cat &other) 
 {
-	std::cout << "cat: assignation operator called." << std::endl;
+	std::cout << "Cat: assignation operator called." << std::endl;
 	if (this != &other)
 		_type = other.getType();
 	return *this;

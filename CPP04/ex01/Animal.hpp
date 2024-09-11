@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:50:06 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 14:51:40 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:23:48 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@
 class Animal 
 {
 	public:
-		Animal(void);
+		Animal();
 		Animal(std::string const &type);
 		Animal(Animal const &other);
-		virtual ~Animal(void);
+		virtual ~Animal();
 		Animal &operator=(Animal const &other);
 		
-		std::string	getType(void) const;
-		virtual void	makeSound(void) const;
+		std::string getType(void) const;
 		virtual Brain *getBrain( void ) const;
-       		virtual void setIdea( std::string idea, int index );
         	virtual std::string getIdea( int index ) const;
+		virtual void setIdea( std::string idea, int index );
 
+		virtual void makeSound(void) const;
 
 	protected:
 		std::string	_type;

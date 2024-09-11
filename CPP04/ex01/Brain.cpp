@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:11:25 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:23:59 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::Brain() 
 {
-	std::cout << "Brain: Default constructor called." << std::endl;
+	std::cout << "Brain: default constructor called." << std::endl;
 }
 
 Brain::Brain(const Brain &other)

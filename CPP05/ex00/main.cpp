@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alix <alix@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:21:58 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/09 17:18:41 by alix             ###   ########.fr       */
+/*   Updated: 2024/09/11 17:53:06 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ int main()
 			std::cout << *ab << std::endl;
 			ab->incGrade();
 			std::cout << *ab << std::endl;
-		} catch (std::exception& a) {
+		} catch (std::exception& a) 
+		{
 			std::cout << "\033[31m" << a.what() << "\033[0m" << std::endl << std::endl;
 		}
-		try {
+		try 
+		{
 			std::cout << "---------------------" << std::endl;
 			std::cout << "Test 2" << std::endl;
 			std::cout << *ac << std::endl;
@@ -43,7 +45,8 @@ int main()
 			std::cout << *ac << std::endl;
 			ac->decGrade();
 			std::cout << *ac << std::endl;
-		} catch (std::exception& a) {
+		} catch (std::exception& a) 
+		{
 			std::cout << "\033[31m" << a.what() << "\033[0m" << std::endl << std::endl;
 		}
 		delete ab;

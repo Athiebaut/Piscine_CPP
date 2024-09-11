@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:53:50 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 15:46:25 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:31:21 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
-#include <iostream>
 
-class Dog: public Animal 
+class Dog : public Animal 
 {
 	public:
-		Dog(void);
+		Dog();
 		Dog(Dog const &other);
-		~Dog(void);
+		~Dog();
 		Dog &operator=(Dog const &other);
 		
+		Brain *getBrain() const;
+        	std::string getIdea(int index) const;
+		void setIdea(std::string idea, int index);
+
 		void makeSound() const;
-		Brain *getBrain( void ) const;
-       		void setIdea( std::string idea, int index );
-        	std::string getIdea( int index ) const;
 
 	private:
 		Brain* _brain;

@@ -6,13 +6,13 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:07:51 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 18:03:46 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:08:37 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-/**********Constructors/Executor**********/
+/**********Constructors/Destructor**********/
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", "none", 72, 45)
 {}
@@ -36,7 +36,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 /**********Others**********/
 
-void RobotomyRequestForm::execute(const Bureaucrat &exec) const
+void	RobotomyRequestForm::execute(const Bureaucrat &exec) const
 {
 	if (!this->getSigned()) 
 	{

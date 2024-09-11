@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 13:24:17 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/10 17:37:48 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 17:59:33 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ class AForm
 		void		beSigned(const Bureaucrat &brc);
 		virtual void	execute(Bureaucrat const &executor) const = 0;
 		void		checkExecuted(const Bureaucrat &exec) const;
-		
 		
 		class GradeTooHighException : public std::exception
 		{

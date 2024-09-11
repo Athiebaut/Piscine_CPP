@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:36:20 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 18:03:43 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 18:09:14 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 /**********Others**********/
 
-void ShrubberyCreationForm::execute(const Bureaucrat &exec) const
+void	ShrubberyCreationForm::execute(const Bureaucrat &exec) const
 {	
 	if (!this->getSigned()) 
 	{
@@ -68,6 +68,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat &exec) const
 		outfile << "           |||/\\" << std::endl;
 		outfile << "           |||\\/" << std::endl;
 		outfile << "           |||||" << std::endl;
-		outfile << "      .....//||||\\...." << std::endl;
+		outfile << "      .....//||||\\...." << std::endl;	
 	}
 }

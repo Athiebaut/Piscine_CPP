@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:50:06 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 12:50:24 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:18:16 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal 
 {
 	public:
-		Animal(void);
+		Animal();
 		Animal(std::string const &type);
 		Animal(Animal const &other);
 		virtual ~Animal(void);

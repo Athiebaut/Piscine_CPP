@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/23 12:51:45 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/11 17:28:21 by athiebau         ###   ########.fr       */
+/*   Created: 2024/09/10 15:09:49 by athiebau          #+#    #+#             */
+/*   Updated: 2024/09/11 18:07:55 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
-#include "Animal.hpp"
+#include "AForm.hpp"
 
-class Cat : public Animal 
+class PresidentialPardonForm : public AForm 
 {
 	public:
-		Cat();
-		Cat(Cat const &other);
-		~Cat();
-		Cat &operator=(Cat const &other);
-		
-		Brain *getBrain() const;
-        	std::string getIdea(int index) const;
-		void setIdea(std::string idea, int index);
+		PresidentialPardonForm(const std::string &target);
+		PresidentialPardonForm(const PresidentialPardonForm &other);
+		~PresidentialPardonForm();
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
 
-		void makeSound() const;
+		void execute(const Bureaucrat &exec) const;
 		
 	private:
-		Brain* _brain;
+		PresidentialPardonForm();
 };
 
 #endif

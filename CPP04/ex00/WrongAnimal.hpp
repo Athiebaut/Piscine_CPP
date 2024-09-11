@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 13:48:46 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 13:48:49 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:19:17 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 #define WRONGANIMAL_HPP
 
 #include "Animal.hpp"
-#include <iostream>
 
-class WrongAnimal: public Animal 
+class WrongAnimal : public Animal 
 {
 	public:
-		WrongAnimal(void);
+		WrongAnimal();
 		WrongAnimal(WrongAnimal const &other);
-		~WrongAnimal(void);
+		~WrongAnimal();
 		WrongAnimal &operator=(WrongAnimal const &other);
 
 		void makeSound() const;

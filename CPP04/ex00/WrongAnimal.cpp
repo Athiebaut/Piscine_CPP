@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:58:46 by athiebau          #+#    #+#             */
-/*   Updated: 2024/08/23 16:02:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:18:42 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 WrongAnimal::WrongAnimal() 
 {
 	_type = "WrongAnimal";
-	std::cout << "WrongAnimal: Default constructor called." << std::endl;
+	std::cout << "WrongAnimal: default constructor called." << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other): Animal(other) 
