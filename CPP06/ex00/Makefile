@@ -2,12 +2,7 @@ NAME = Coffee_Making
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-	AForm.cpp \
-	Intern.cpp \
-	Bureaucrat.cpp \
-	PresidentialPardonForm.cpp \
-	RobotomyRequestForm.cpp \
-	ShrubberyCreationForm.cpp
+	ScalarConverter.cpp
 
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
