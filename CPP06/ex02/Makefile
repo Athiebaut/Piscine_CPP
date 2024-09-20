@@ -1,8 +1,8 @@
-NAME = ScalarConverter
+NAME = Identify_type
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-	ScalarConverter.cpp
+	Base.cpp \
 
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)

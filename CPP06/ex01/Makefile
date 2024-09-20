@@ -1,8 +1,8 @@
-NAME = ScalarConverter
+NAME = Serializer
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-	ScalarConverter.cpp
+	Serializer.cpp
 
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)

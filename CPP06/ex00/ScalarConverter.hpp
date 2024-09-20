@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 12:17:59 by athiebau          #+#    #+#             */
-/*   Updated: 2024/09/17 19:55:26 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/09/19 13:52:12 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <climits>
 #include <cfloat>
 #include <iomanip>
+#include <cerrno>
 
 class ScalarConverter
 {
@@ -34,14 +35,14 @@ class ScalarConverter
 		static bool isDOverflow(std::string const arg, double &value);
 		static bool isInff(std::string const arg);
 
-		static void convertToInt(double value, std::ostringstream &os);
-		static void convertToFloat(double value, std::ostringstream &os);
-		static void convertToChar(double value, std::ostringstream &os);
+		static void convertToInt(double value, std::ostringstream &os, int is_nan);
+		static void convertToFloat(double value, std::ostringstream &os, int is_inf);
+		static void convertToChar(double value, std::ostringstream &os, int is_nan);
 		static void convertToDouble(double value, std::ostringstream &os);
 
 		static std::string removeF(std::string arg);
-		static double convertDouble(std::string arg, int is_inf);
-		static void setConversions(double value, std::ostringstream (&outputs)[4], int is_inf);
+		static double convertDouble(std::string arg, int is_inf, int is_nan);
+		static void setConversions(double value, std::ostringstream (&outputs)[4], int is_inf, int is_nan);
 		static void printConversions(std::ostringstream const (&outputs)[4]);
 		static const double	isMaxDouble;
 		static const float	isMaxFloat;
