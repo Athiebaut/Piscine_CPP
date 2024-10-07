@@ -1,9 +1,8 @@
-NAME = Array
+NAME = Span
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-	# Array.tpp
-
+	Span.cpp
 
 OBJS_DIR = .objs/
 OBJS_NAMES = $(SRC:.cpp=.o)
