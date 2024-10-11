@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:28:12 by athiebau          #+#    #+#             */
-/*   Updated: 2024/10/10 16:04:51 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:45:28 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 #include <iostream>
 #include <map>
+#include <fstream>
+#include <string>
+#include <sstream>
+
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
 
 const std::string csvFile = "data.csv";
 
@@ -29,10 +37,12 @@ class BitcoinExchange
 		BitcoinExchange operator=(const BitcoinExchange &other);
 		~BitcoinExchange();
 
-		std::map<std::string, double> getMapExchangeRates(void) const;
-		std::map<std::string, double> getMapInputData(void) const;
+		std::map<const std::string, double> getMapExchangeRates() const;
+		// std::map<const std::string, double> getMapInputData(void) const;
 
 		void readDataCSV();
+
+		bool checkDataCSV();
 
 		
 };
