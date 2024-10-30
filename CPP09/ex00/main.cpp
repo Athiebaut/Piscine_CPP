@@ -6,13 +6,14 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:03:35 by athiebau          #+#    #+#             */
-/*   Updated: 2024/10/28 12:16:21 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/10/29 11:04:53 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char **argv) 
+{
 
 	BitcoinExchange b;
 
