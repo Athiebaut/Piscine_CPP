@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:01:17 by athiebau          #+#    #+#             */
-/*   Updated: 2024/11/08 16:55:21 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/11/09 18:01:10 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <ctime>
 #include <cmath>
 #include <vector>
-#include <list>
+#include <stack>
 #include <climits>
 #include <iterator>
 
@@ -43,7 +43,7 @@ class PmergeMe
 		bool	isValid(int argc, char *argv[]);
 		
 		void	mergeInsertionSort(std::vector<int> &arr);
-		void	mergeInsertionSort(std::list<int> &arr);
+		void	mergeInsertionSort(std::deque<int> &arr);
 };
 
 

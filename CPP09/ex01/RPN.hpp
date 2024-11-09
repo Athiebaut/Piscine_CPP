@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:05:37 by athiebau          #+#    #+#             */
-/*   Updated: 2024/10/30 11:42:06 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/11/09 17:49:34 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <list>
 
 #define RESET "\033[0m"
 #define RED "\033[31m"
@@ -37,7 +38,7 @@ class RPN
 		void	processNum(const std::string &token);
 
 	private:
-		std::stack<float> _stk;
+		std::stack< float, std::list<float> > _stk;
 };
 
 #endif
