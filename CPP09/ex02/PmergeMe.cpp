@@ -6,7 +6,7 @@
 /*   By: athiebau <athiebau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:26:34 by athiebau          #+#    #+#             */
-/*   Updated: 2024/11/09 19:43:23 by athiebau         ###   ########.fr       */
+/*   Updated: 2024/11/16 19:29:58 by athiebau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool	PmergeMe::isValid(int argc, char *argv[])
 {
 	if (argc < 2)
 	{
-		std::cerr << "Usage: " << argv[0] << " [num...]" << std::endl;
+		std::cerr << RED << "Usage: " << argv[0] << " [num...]" << RESET << std::endl;
 		return (false);
 	}
 	
@@ -65,18 +65,18 @@ bool	PmergeMe::isValid(int argc, char *argv[])
 
 		if (!isNumber(arg))
 		{
-			std::cerr << "Error: Characters include." << std::endl;
+			std::cerr << RED << "Error: Characters include." << RESET << std::endl;
 			return false;
 		}
 		long num = std::atol(arg);
 		if (num > INT_MAX || num < 0)
 		{
-			std::cerr << "Error: Only positive integer sequence as argument." << std::endl;
+			std::cerr << RED << "Error: Only positive integer sequence as argument." << RESET << std::endl;
 			return false;
 		}
 		if (!isDuplicate(num, numbers, count))
 		{
-			std::cerr << "Error: Duplicate number." << std::endl;
+			std::cerr << RED << "Error: Duplicate number." << RESET << std::endl;
 			return (false);
 		}
 		numbers[count] = static_cast<int>(num);
@@ -85,13 +85,20 @@ bool	PmergeMe::isValid(int argc, char *argv[])
 	return (true);
 }
 
-static int jacobsthal(int n) 
+static std::vector<int> generateJacobsthal(size_t limit) 
 {
-    if (n == 0) 
-    	return 0;
-    if (n == 1) 
-    	return 1;
-    return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+	std::vector<int> jacobsthal;
+	int a = 0, b = 1;
+	
+	while (a <= static_cast<int>(limit)) 
+	{
+		jacobsthal.push_back(a);
+		int next = a + 2 * b;
+		a = b;
+		b = next;
+	}
+	
+	return (jacobsthal);
 }
 
 void	PmergeMe::mergeInsertionSort(std::vector<int> &arr)
@@ -100,16 +107,8 @@ void	PmergeMe::mergeInsertionSort(std::vector<int> &arr)
 	if (n <= 1) 
 		return;
 	std::vector<int> larger, smaller;
-	/*----------------------------------------------------------------*/
-	std::cout << "\narray = ";
-	for (size_t i = 0; i < n; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
+
 	// Step 1 and Step 2: Pairing and finding larger and smaller elements
-	std::cout << "Step 1 & 2" << std::endl;
 	for (size_t i = 0; i < n; i += 2)
 	{
 		if (i + 1 < n)
@@ -119,28 +118,11 @@ void	PmergeMe::mergeInsertionSort(std::vector<int> &arr)
 		} else
 			larger.push_back(arr[i]);
 	}
-	/*----------------------------------------------------------------*/
-	std::cout << "\nsmaller = ";
-	for (size_t i = 0; i < smaller.size(); i++)
-	{
-		std::cout << smaller[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	std::cout << "\nlarger = ";
-	for (size_t i = 0; i < larger.size(); i++)
-	{
-		std::cout << larger[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	std::cout << "------------------------" << std::endl;
+	
 	// Step 3: Recursively sort the larger elements
-	std::cout << "Step 3" << std::endl;
 	mergeInsertionSort(larger);
 	
 	// Step 4: Find the corresponding smaller element for the smallest larger element
-	std::cout << "Step 4" << std::endl;
 	int firstLarger = larger[0];
 	int correspondingSmaller = -1;
 	for (size_t i = 0; i < n; i += 2)
@@ -154,68 +136,49 @@ void	PmergeMe::mergeInsertionSort(std::vector<int> &arr)
 			}
 		}
 	}
-
-	int jacobsthal_limit = 10; // Limiter le nombre de termes de Jacobsthal à insérer
-    	for (int i = 0; i < jacobsthal_limit; ++i)
-	{
-		int jacobsthal_value = jacobsthal(i);
-        	// Insertion dans le tableau trié
-        	std::vector<int>::iterator it = std::lower_bound(arr.begin(), arr.end(), jacobsthal_value);
-        	arr.insert(it, jacobsthal_value);
-	}
-	/*----------------------------------------------------------------*/
-	std::cout << "firstLarger = " << firstLarger << " pairingSmaller = " << correspondingSmaller << std::endl;
-	std::cout << "\nArray before = ";
-	for (size_t i = 0; i < arr.size(); i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
 	arr.clear();
 	arr = larger;
-	/*----------------------------------------------------------------*/
-	std::cout << "Array after = ";
-	for (size_t i = 0; i < arr.size(); i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
 	if (correspondingSmaller != -1)
 		arr.insert(arr.begin(), correspondingSmaller);
-	/*----------------------------------------------------------------*/
-	std::cout << "Array 2 = ";
-	for (size_t i = 0; i < arr.size(); i++)
+	
+	// Step 5: Use Jacob-style to find best iterator
+	std::vector<int> jacobsthal = generateJacobsthal(arr.size());
+	for (size_t i = 0; i < smaller.size(); ++i) 
 	{
-		std::cout << arr[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	std::cout << "smaller 2 = ";
-	for (size_t i = 0; i < smaller.size(); i++)
-	{
-		std::cout << smaller[i] << " ";
-	}
-	std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	// Step 5: Insert the remaining smaller elements
-	std::cout << "Step 5" << std::endl;
-	for (size_t i = 0; i < smaller.size(); ++i)
-	{
-		if (smaller[i] != correspondingSmaller)
+		if (smaller[i] != correspondingSmaller) 
 		{
-			std::vector<int>::iterator it = std::lower_bound(arr.begin(), arr.end(), smaller[i]);
-			arr.insert(it, smaller[i]);
+			size_t index = 0;
+			for (size_t j = 0; j < jacobsthal.size(); ++j) 
+			{
+				if ((unsigned long)jacobsthal[j] >= arr.size()) 
+					break;
+				if (arr[jacobsthal[j]] >= smaller[i]) 
+				{
+					index = jacobsthal[j];
+					break;
+				}
+			}
+		//  Step 6: Final insertion point refinement using binary search
+		std::vector<int>::iterator it = std::lower_bound(arr.begin() + index, arr.end(), smaller[i]);
+		arr.insert(it, smaller[i]);
 		}
 	}
-	/*----------------------------------------------------------------*/
-	std::cout << "Array 3 = ";
-	for (size_t i = 0; i < arr.size(); i++)
+}
+
+static std::deque<int> generateJacobsthalDeque(size_t limit) 
+{
+	std::deque<int> jacobsthal;
+	int a = 0, b = 1;
+	
+	while (a <= static_cast<int>(limit)) 
 	{
-		std::cout << arr[i] << " ";
+		jacobsthal.push_back(a);
+		int next = a + 2 * b;
+		a = b;
+		b = next;
 	}
-	std::cout << std::endl;
+	
+	return (jacobsthal);
 }
 
 void	PmergeMe::mergeInsertionSort(std::deque<int> &arr)
@@ -224,16 +187,8 @@ void	PmergeMe::mergeInsertionSort(std::deque<int> &arr)
 	if (n <= 1) 
 		return;
 	std::deque<int> larger, smaller;
-	/*----------------------------------------------------------------*/
-	// std::cout << "\narray = ";
-	// for (size_t i = 0; i < n; i++)
-	// {
-	// 	std::cout << arr[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
+
 	// Step 1 and Step 2: Pairing and finding larger and smaller elements
-	// std::cout << "Step 1 & 2" << std::endl;
 	for (size_t i = 0; i < n; i += 2)
 	{
 		if (i + 1 < n)
@@ -243,28 +198,11 @@ void	PmergeMe::mergeInsertionSort(std::deque<int> &arr)
 		} else
 			larger.push_back(arr[i]);
 	}
-	/*----------------------------------------------------------------*/
-	// std::cout << "\nsmaller = ";
-	// for (size_t i = 0; i < smaller.size(); i++)
-	// {
-	// 	std::cout << smaller[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	// std::cout << "\nlarger = ";
-	// for (size_t i = 0; i < larger.size(); i++)
-	// {
-	// 	std::cout << larger[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	// std::cout << "------------------------" << std::endl;
+	
 	// Step 3: Recursively sort the larger elements
-	// std::cout << "Step 3" << std::endl;
 	mergeInsertionSort(larger);
 	
 	// Step 4: Find the corresponding smaller element for the smallest larger element
-	// std::cout << "Step 4" << std::endl;
 	int firstLarger = larger[0];
 	int correspondingSmaller = -1;
 	for (size_t i = 0; i < n; i += 2)
@@ -278,66 +216,31 @@ void	PmergeMe::mergeInsertionSort(std::deque<int> &arr)
 			}
 		}
 	}
-
-	int jacobsthal_limit = 10; // Limiter le nombre de termes de Jacobsthal à insérer
-    	for (int i = 0; i < jacobsthal_limit; ++i)
-	{
-		int jacobsthal_value = jacobsthal(i);
-        	// Insertion dans le tableau trié
-        	std::deque<int>::iterator it = std::lower_bound(arr.begin(), arr.end(), jacobsthal_value);
-        	arr.insert(it, jacobsthal_value);
-	}
-	/*----------------------------------------------------------------*/
-	// std::cout << "firstLarger = " << firstLarger << " pairingSmaller = " << correspondingSmaller << std::endl;
-	// std::cout << "\nArray before = ";
-	// for (size_t i = 0; i < arr.size(); i++)
-	// {
-	// 	std::cout << arr[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
 	arr.clear();
 	arr = larger;
-	/*----------------------------------------------------------------*/
-	// std::cout << "Array after = ";
-	// for (size_t i = 0; i < arr.size(); i++)
-	// {
-	// 	std::cout << arr[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
 	if (correspondingSmaller != -1)
 		arr.insert(arr.begin(), correspondingSmaller);
-	/*----------------------------------------------------------------*/
-	// std::cout << "Array 2 = ";
-	// for (size_t i = 0; i < arr.size(); i++)
-	// {
-	// 	std::cout << arr[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	// std::cout << "smaller 2 = ";
-	// for (size_t i = 0; i < smaller.size(); i++)
-	// {
-	// 	std::cout << smaller[i] << " ";
-	// }
-	// std::cout << std::endl;
-	/*----------------------------------------------------------------*/
-	// Step 5: Insert the remaining smaller elements
-	// std::cout << "Step 5" << std::endl;
-	for (size_t i = 0; i < smaller.size(); ++i)
+	
+	// Step 5: Use Jacob-style to find best iterator
+	std::deque<int> jacobsthal = generateJacobsthalDeque(arr.size());
+	for (size_t i = 0; i < smaller.size(); ++i) 
 	{
-		if (smaller[i] != correspondingSmaller)
+		if (smaller[i] != correspondingSmaller) 
 		{
-			std::deque<int>::iterator it = std::lower_bound(arr.begin(), arr.end(), smaller[i]);
-			arr.insert(it, smaller[i]);
+			size_t index = 0;
+			for (size_t j = 0; j < jacobsthal.size(); ++j) 
+			{
+				if ((unsigned long)jacobsthal[j] >= arr.size()) 
+					break;
+				if (arr[jacobsthal[j]] >= smaller[i]) 
+				{
+					index = jacobsthal[j];
+					break;
+				}
+			}
+		//  Step 6: Final insertion point refinement using binary search
+		std::deque<int>::iterator it = std::lower_bound(arr.begin() + index, arr.end(), smaller[i]);
+		arr.insert(it, smaller[i]);
 		}
 	}
-	/*----------------------------------------------------------------*/
-// 	std::cout << "Array 3 = ";
-// 	for (size_t i = 0; i < arr.size(); i++)
-// 	{
-// 		std::cout << arr[i] << " ";
-// 	}
-// 	std::cout << std::endl;
 }
